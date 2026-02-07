@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Important Question 😼</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: #ffe6eb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 15px 35px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    #yes {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #no {
+        background-color: #f44336;
+        color: white;
+        position: absolute;
+    }
+
+    #scary {
+        display: none;
+        text-align: center;
+    }
+
+    #scary img {
+        width: 300px;
+        border-radius: 15px;
+    }
+
+    #scary h2 {
+        margin-top: 15px;
+        color: red;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="main">
+    <h1>Will you marry me? 💍</h1>
+    <button id="yes" onclick="yesClick()">Yes 💖</button>
+    <button id="no">No 💔</button>
+</div>
+
+<div id="scary">
+    <img src="cat.png" alt="Cat">
+    <h2>Don’t mess with me 😼</h2>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const startTime = Date.now();
+
+    document.addEventListener("mousemove", () => {
+        const elapsed = (Date.now() - startTime) / 1000;
+
+        if (elapsed >= 30) {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("scary").style.display = "block";
+            return;
+        }
+
+        const x = Math.random() * (window.innerWidth - 150);
+        const y = Math.random() * (window.innerHeight - 60);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    function yesClick() {
+        document.body.innerHTML = "<h1 style='color:green;'>Yaaay! 💖💍</h1>";
+    }
+</script>
+
+</body>
+</html>
